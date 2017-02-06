@@ -1,18 +1,28 @@
 defmodule Identicon do
   @moduledoc """
-  Documentation for Identicon.
+  Takes in a string and returns an identicon image.
   """
 
-  @doc """
-  Hello world.
+  def main(input) do
+    input
+    |> hash_input
+    |> pick_color
+  end
 
-  ## Examples
+  def hash_input(input) do
+    hex = :crypto.hash(:md5, input)
+    |> :binary.bin_to_list
 
-      iex> Identicon.hello
-      :world
+    %Identicon.Image{hex: hex}
+  end
 
-  """
-  def hello do
-    :world
+  def pick_color(%Identicon.Image{hex: [r, g, b | _tail]} = image) do
+    # %Identicon.Image{hex: hex_list} = image
+    # [r, g, b | _tail] = hex_list
+
+    # %Identicon.Image{hex: [r, g, b | _tail]} = image
+    # Refactor: Move pattern matching into argument list! (Wow!)
+
+    %Identicon.Image{image | color: {r, g, b}}
   end
 end
