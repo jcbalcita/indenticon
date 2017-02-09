@@ -1,19 +1,33 @@
 # Identicon
+Built with guidance from Stephen Grider's Elixir course available on Udemy.com.
 
-**TODO: Add description**
+Uses the MD5 hashing algorithm to create a unique graphical identicon based on an input string.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `identicon` to your list of dependencies in `mix.exs`:
+## Elixir Code
+The `main` funciton in the Identicon module is structured like so:
 
 ```elixir
-def deps do
-  [{:identicon, "~> 0.1.0"}]
+def main(input) do
+  input
+  |> hash_input
+  # => hashes the input string
+  |> pick_color
+  # => takes first three integers for r, g, b color
+  |> build_grid
+  # => chunks the list into 3's, flattens, then adds index to each element
+  |> filter_odd_squares
+  # => filters out the odd numbers in the list
+  |> build_pixel_map
+  # => maps coordinates for the colored squares
+  |> draw_image
+  # => creates 2D image with Erlang egd
+  |> save_image(input)
+  # => saves the image to file
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/identicon](https://hexdocs.pm/identicon).
-
+## Running the code
+- Install Elixir
+- Run `iex -S mix` in the root directory
+- Run `Identicon.main("your string here")`
+- Open the directory
