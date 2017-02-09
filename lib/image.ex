@@ -3,5 +3,5 @@ defmodule Identicon.Image do
     Sole purpose: hold the struct containing all the data.
   """
 
-  defstruct hex: nil, color: nil
+  defstruct hex: nil, color: nil, grid: nil, pixel_map: nil
 end
