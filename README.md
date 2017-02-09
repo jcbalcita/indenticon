@@ -3,6 +3,12 @@ Built with guidance from Stephen Grider's Elixir course available on Udemy.com.
 
 Uses the MD5 hashing algorithm to create a unique graphical identicon based on an input string.
 
+## What I Learned 
+- Pattern matching within method arguments
+- Greater understanding of the pipe operator and the way Elixir is meant to be used
+- Mapping and iterating through Elixir data structures
+- Better knowledge of Elixir library, e.g. `Enum.chunk/2`, `Enum.filter/2`, etc.
+
 ## Elixir Code
 The `main` function in the Identicon module is structured like so:
 
