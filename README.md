@@ -30,4 +30,4 @@ end
 - Install Elixir
 - Run `iex -S mix` in the root directory
 - Run `Identicon.main("your string here")`
-- Open the directory to see the `png` file
+- Find the image saved in the root directory
